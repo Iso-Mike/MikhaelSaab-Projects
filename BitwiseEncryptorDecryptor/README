@@ -2,7 +2,7 @@ Author
 Mikhael Saab
 
 Overview
-  This tool provides a mechanism for encrypting and decrypting text input by the user. It utilizes a custom algorithm, leveraging user-defined keys and bitwise operations, to securely process textual data.
+This tool provides a mechanism for encrypting and decrypting text input by the user. It utilizes a custom algorithm, leveraging user-defined keys and bitwise operations, to securely process textual data.
 
 Features
   - Custom Encryption Algorithm: Implements unique encryption and decryption methods using bitwise operations.
