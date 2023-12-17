@@ -25,7 +25,7 @@ The FineDine Reservation System is a robust and scalable software application de
 - `defs.h`: Defines essential structures and constants used across the program.
 
 ## How to Compile and Run
-- **Compilation: gcc -Wall -std=c11 -o FineDineManager main.c patrons.c resv.c restaurant.c load.c** 
+- **Compilation: make** 
 - **Execution: ./FineDineManager** 
 
 
