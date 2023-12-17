@@ -15,7 +15,7 @@ This tool provides a mechanism for encrypting and decrypting text input by the u
 - `CustomEncryptDecrypt.c`
 
 ## How to Compile and Run
-- **Compilation: gcc -Wall -o CustomEncryptDecrypt -std=c11 CustomEncryptDecrypt.c** 
+- **Compilation: make** 
 - **Execution: ./CustomEncryptDecrypt** 
 
 ## Usage Instructions
