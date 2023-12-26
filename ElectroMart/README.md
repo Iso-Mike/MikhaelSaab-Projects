@@ -1,5 +1,8 @@
 # ElectroMart Storefront
 
+## Author
+Mikhael Saab
+
 ## Overview
 ElectroMart Storefront is a comprehensive JavaFX application designed to manage an electronic store. The application provides functionalities for product management, sales tracking, and customer interaction through an intuitive graphical user interface.
 
