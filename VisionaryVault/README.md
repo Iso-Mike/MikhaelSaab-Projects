@@ -29,7 +29,7 @@ The Art Gallery Management System is a comprehensive web application designed fo
 - `public/`: Static files like stylesheets and client-side scripts.
 
 ## How to Compile and Run
-- **Installation:** Run `npm install` to install dependencies.
+- **Installation:** Run `npm install` & `node importArtworks.js` to install dependencies and initialize artworks.
 - **Execution:** Start the server with `npm start` or `node server.js`.
 
 ## Usage Instructions
