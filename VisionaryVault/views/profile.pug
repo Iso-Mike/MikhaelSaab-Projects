@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  .user-profile#user-profile
+    h2 #{user.username}'s Profile
+
+    .user-details
+      p Account Type: #{user.accountType}
+
+      // Conditionally display the upgrade or downgrade button
+      if user.accountType === 'patron'
+        if user.hasCreatedArtwork
+          a(href='/artworks/add') Add New Artwork
+        else
+          form(action="/users/upgrade-to-artist", method="POST")
+            button(type="submit") Become an Artist
+            
+      else if user.accountType === 'artist'
+        a(href='/artworks/add') Add New Artwork
+        form(action="/users/downgrade-to-patron", method="POST")
+          button(type="submit") Downgrade to Patron
+
+    // Display followed artists
+    if user.followedArtists && user.followedArtists.length > 0
+      h3 Followed Artists
+      ul.followed-artists
+        each artist in user.followedArtists
+          li.artist-item
+            a(href=`/artists/${artist._id}`) #{artist.name}
+
+    // Display liked artworks
+    if likedArtworks && likedArtworks.length > 0
+      h3 Liked Artworks
+      .liked-artworks
+        each artwork in likedArtworks
+          .artwork
+            a(href=`/artworks/${artwork._id}`)
+              img(src=artwork.imageUrl, alt=artwork.title)
+              .info
+                h4= artwork.title
+
+    // Display reviews made by the user
+    if reviews && reviews.length > 0
+      h3 Your Reviews
+      .reviews
+        each artwork in reviews
+          each review in artwork.reviews
+            if review.author._id.toString() === user._id.toString()
+              .review
+                h4 Review for
+                  a(href=`/artworks/${artwork._id}`) #{artwork.title}
+                p #{review.content}
+
+    else
+      p You have not written any reviews.
+
+  form.logout-form(action='/users/logout', method='GET')
+    button.logout-button(type='submit') Logout
+

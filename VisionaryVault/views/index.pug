@@ -1,0 +1,55 @@
+extends layout
+
+block content
+  main.home-page
+    h1#main-title Visionary Vault
+    p Welcome to Visionary Vault, where the whispers of creativity and the echoes of artistic mastery converge. Nestled in the heart of the art world, our gallery is a sanctuary for those who seek solace in beauty and inspiration in the extraordinary. At Visionary Vault, we curate a diverse and vibrant collection of artworks, each piece telling a story, each brushstroke a testament to the artist's journey. From the bold and contemporary to the subtle and classic, our selection embraces the full spectrum of artistic expression. We believe art is not just an aesthetic experience but a dialogue — between the artist and the viewer, between the past and the present. Our mission is to foster this dialogue, to ignite a passion for art in every visitor, and to provide a platform where emerging talents and established masters can showcase their work to the world. Join us in exploring the depths of creativity and celebrate the myriad hues of human expression. Visionary Vault is more than an art gallery; it's a journey into the heart of art itself.
+
+    // Search bar with an ID
+    form#search-form(action="/search", method="get")
+      input(type="text", name="query", placeholder="Search artworks...")
+      button(type="submit") Search
+
+    // Call-to-action button with an ID
+    .call-to-action#cta
+      a.btn(href='/artworks') Explore Our Gallery
+
+    // Featured artworks section with an ID
+    .featured-artworks
+      h2 Featured Artworks
+      .artworks-grid
+        each artwork, index in featuredArtworks.slice(0, 2)
+          .artwork-container
+            a(href=`/artworks/${artwork._id}`)
+              img(src=artwork.imageUrl, alt=artwork.title, class="artwork-image")
+
+    script.
+      const artworks = !{JSON.stringify(featuredArtworks)};
+      const artworkImages = document.querySelectorAll('.featured-artworks .artwork-image');
+      const artworkLinks = document.querySelectorAll('.featured-artworks .artworks-grid a');
+
+      function getRandomArtworkIndex(excludeIndex) {
+        let randomIndex;
+        do {
+          randomIndex = Math.floor(Math.random() * artworks.length);
+        } while (randomIndex === excludeIndex);
+        return randomIndex;
+      }
+
+      function updateArtworks() {
+        let firstArtworkIndex = getRandomArtworkIndex();
+        let secondArtworkIndex = getRandomArtworkIndex(firstArtworkIndex);
+
+        artworkImages.forEach(img => { img.style.opacity = '0'; });
+        setTimeout(() => {
+          artworkImages[0].src = artworks[firstArtworkIndex].imageUrl;
+          artworkLinks[0].href = `/artworks/${artworks[firstArtworkIndex]._id}`;
+          artworkImages[0].style.opacity = '1';
+
+          artworkImages[1].src = artworks[secondArtworkIndex].imageUrl;
+          artworkLinks[1].href = `/artworks/${artworks[secondArtworkIndex]._id}`;
+          artworkImages[1].style.opacity = '1';
+        }, 500);
+      }
+
+      setInterval(updateArtworks, 3000);  

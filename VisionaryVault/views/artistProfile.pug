@@ -1,0 +1,35 @@
+extends layout
+
+block content
+  if successMsg
+    script.
+      alert("#{successMsg}")
+      
+  .artist-profile
+    h2 #{artist.name}'s Profile
+
+    .artist-info
+      img.profile-pic(src=artist.profileImageUrl || '/images/defaultProfilePic.png', alt=`Profile picture of ${artist.name}`)
+      .bio
+        p Followers: #{totalFollowers}
+
+      // Follow/Unfollow button logic
+      if user
+        if user && user._id !== artist._id
+          if isFollowing
+            form.follow-button(method="POST", action=`/artists/${artist._id}/unfollow`)
+              button(type="submit") Unfollow
+          else
+            form.follow-button(method="POST", action=`/artists/${artist._id}/follow`)
+              button(type="submit") Follow
+
+    // Artist's artworks
+    .artworks-section
+      h3 Artworks
+      .artworks-grid
+        each artwork in artworks
+          .artwork
+            a(href=`/artworks/${artwork._id}`)
+              img(src=artwork.imageUrl, alt=artwork.title)
+              .info
+                h4= artwork.title

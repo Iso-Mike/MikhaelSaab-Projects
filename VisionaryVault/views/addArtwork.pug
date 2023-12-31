@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  .add-artwork-container
+    h2 Create New Artwork
+
+    // Form for adding new artwork
+    form#add-artwork-form(action="/artworks/add", method="post", enctype="multipart/form-data")
+      .form-group
+        label(for="title") Title
+        input#title(type="text", name="title", required=true)
+
+      .form-group
+        label(for="description") Description
+        textarea#description(name="description", required=true)
+
+      .form-group
+        label(for="image") Artwork Image
+        input#image(type="file", name="image", accept="image/*", required=true)
+
+      .form-group
+        label(for="year") Year
+        input#year(type="text", name="year", required=true)
+
+      .form-group
+        label(for="category") Category
+        input#category(type="text", name="category")
+
+      .form-group
+        label(for="medium") Medium
+        input#medium(type="text", name="medium")
+
+      button#submit-artwork-button(type="submit") Submit Artwork

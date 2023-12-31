@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  main.searchResult
+    h1 Search Results for "#{query}"
+
+    // Artworks Grid
+    .artworks-grid
+      each artwork in artworks
+        .artwork
+          a(href=`/artworks/${artwork._id}`)
+            img(src=artwork.imageUrl, alt=artwork.title)
+            .info
+              h3 #{artwork.title}
+              p Artist: #{artwork.artistData.name}
+              p #{artwork.description}
+              p.likes Likes: #{artwork.likes.length}
+              p.comments Comments: #{artwork.reviews.length}
+
+    // Pagination
+    nav.pagination
+      ul
+        if currentPage > 1
+          li: a(href=`/search?query=${query}&page=${currentPage - 1}`, aria-label='Previous page') Prev
+        - var i = 1
+        while i <= totalPages
+          li: a(href=`/search?query=${query}&page=${i}`, class=(currentPage === i ? 'active' : '')) #{i}
+          - i++
+        if currentPage < totalPages
+          li: a(href=`/search?query=${query}&page=${currentPage + 1}`, aria-label='Next page') Next

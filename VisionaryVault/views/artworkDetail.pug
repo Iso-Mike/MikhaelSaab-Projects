@@ -1,0 +1,61 @@
+extends layout
+
+block content
+  h2= artwork.title
+  .artwork-detail
+    img(src=artwork.imageUrl, alt=artwork.title)
+    .info
+      p Artist: 
+        if artwork.artist
+          a(href=`/artists/${artwork.artist._id}`) #{artwork.artist.name}
+        else
+          | Artist information not available
+      p Year: #{artwork.year}
+      p Category: #{artwork.category}
+      p Medium: #{artwork.medium}
+      p Description: #{artwork.description}
+
+      // Check if the artwork is by the logged-in user
+      if user && user.username !== artwork.artist.name
+        // Likes and Like Button
+        .likes-and-button
+          p.likes Likes: #{artwork.likes.length}
+          form(method="POST", action=`/artworks/${artwork._id}/like`).like-form
+            button.like-button(type="submit") #{artwork.likes.includes(user._id) ? 'Unlike' : 'Like'}
+
+        // Review Form
+        .review-section
+          form#review-form(action=`/artworks/${artwork._id}/addReview`, method="post")
+            input#artwork-id(type="hidden" name="artworkId" value=artwork._id)
+            .form-group
+              label(for="review-text") Write your review:
+              textarea#review-text(name="content" required)
+            button(type="submit") Submit Review
+            // Container for error messages
+            #review-error-message
+
+      // Display existing reviews with delete option
+      .reviews
+        each review, index in artwork.reviews
+          .review
+            p #{review.author.username}: #{review.content}
+            p Posted on #{new Date(review.createdAt).toLocaleDateString()}
+            
+            // Delete review button
+            if user && review.author._id.toString() === user._id.toString()
+              form(method="POST", action=`/artworks/${artwork._id}/deleteReview/${index}`).delete-review-form
+                button.delete-review-button(type="submit") Delete Review
+
+    // Container where new reviews will be appended
+    #reviews-container
+
+    // Related artworks
+    .related-artworks
+      h3 Related Artworks
+      .artworks-grid
+        each relatedArtwork in relatedArtworks
+          .artwork
+            a(href=`/artworks/${relatedArtwork._id}`)
+              img(src=relatedArtwork.imageUrl, alt=relatedArtwork.title)
+              .info
+                h4= relatedArtwork.title

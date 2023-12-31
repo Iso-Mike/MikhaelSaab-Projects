@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  .registration-container
+    h2 Register
+
+    // Displaying the error message if it exists
+    if error
+      .alert.alert-danger #{error}
+
+    form#registration-form(method="POST", action="/users/register")
+      .form-group
+        label(for="username") Username
+        input#username(type="text", name="username", required=true)
+      
+      .form-group
+        label(for="password") Password
+        input#password(type="password", name="password", required=true)
+
+      .form-group
+        label Account Type
+        .radio-group
+          label.radio-label(for="patron")
+            input#patron(type="radio", name="accountType", value="patron", checked=true)
+            | Patron
+          label.radio-label(for="artist")
+            input#artist(type="radio", name="accountType", value="artist")
+            | Artist
+
+      button#register-button(type="submit") Register

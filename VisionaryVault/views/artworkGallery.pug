@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  main.artworks-gallery
+    h1 Artworks Gallery
+
+    .sort-dropdown
+      label(for='sort') Sort by:
+      select#sort-select(name='sort')
+        option(value='title', selected=(sort === 'title')) Alphabetically
+        option(value='mostLiked', selected=(sort === 'mostLiked')) Most Liked
+        option(value='mostCommented', selected=(sort === 'mostCommented')) Most Commented
+
+    script.
+      document.getElementById('sort-select').addEventListener('change', function() {
+        window.location.href = '/artworks?sort=' + this.value;
+      });
+
+    .artworks-grid
+      each artwork in artworks
+        .artwork
+          a(href=`/artworks/${artwork._id}`)
+            img(src=artwork.imageUrl, alt=artwork.title)
+            .info
+              h3 #{artwork.title}
+              p Artist: #{artwork.artist.name}
+              p #{artwork.description}
+              p.likes Likes: #{artwork.likes.length}
+              p.comments Comments: #{artwork.reviews.length}
+
+    // Pagination
+    nav.pagination
+      ul
+        if currentPage > 1
+          li: a(href=`/artworks/?page=${currentPage - 1}`, aria-label='Previous page') Prev
+        - var i = 1
+        while i <= totalPages
+          li: a(href=`/artworks/?page=${i}`, class=(currentPage === i ? 'active' : '')) #{i}
+          - i++
+        if currentPage < totalPages
+          li: a(href=`/artworks/?page=${currentPage + 1}`, aria-label='Next page') Next

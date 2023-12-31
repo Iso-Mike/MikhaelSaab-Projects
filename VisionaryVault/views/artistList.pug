@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  main.artists-list
+    h1 Artists
+    .artist-grid
+      each artist in artists
+        .artist-card
+          a(href=`/artists/${artist._id}`)
+            img.artist-image(
+              src=artist.profileImageUrl || 'images/defaultProfilePic.png', 
+              alt=`Profile picture of ${artist.name}`
+            )
+          .artist-details
+            h2 #{artist.name}
+          // Follow/Unfollow button logic
+          if user
+            if user.followedArtists && !user.followedArtists.includes(artist._id)
+              form(action=`/artists/${artist._id}/follow`, method="POST")
+                button(type="submit") Follow
+            else
+              form(action=`/artists/${artist._id}/unfollow`, method="POST")
+                button(type="submit") Unfollow

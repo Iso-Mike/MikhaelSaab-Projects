@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .login-container
+    h2 Login
+
+    if error
+      .alert.alert-danger #{error}
+
+    form#login-form(method="POST", action="/users/login")
+      .form-group
+        label(for="username") Username
+        input#username-input(type="text", name="username", required=true)
+      
+      .form-group
+        label(for="password") Password
+        input#password-input(type="password", name="password", required=true)
+      
+      button#login-button(type="submit") Login

@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title Art Gallery
+    link(rel='stylesheet', href='/css/style.css')
+
+  body
+    block body-classes
+    header
+      nav
+        .nav-container
+          ul
+            li: a(href='/') Home
+            li: a(href='/artworks') Artworks
+            li: a(href='/artists') Artists
+            if user
+              li: a(href='/users/profile') Profile
+              li: a(href='/users/logout') Logout
+            else
+              li: a(href='/users/login') Login
+              li: a(href='/users/register') Register
+
+    main
+      block content
+
+    footer
+      p © 2023 Art Gallery
