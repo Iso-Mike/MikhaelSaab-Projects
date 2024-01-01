@@ -1,0 +1,19 @@
+Author: Mikhael Saab (101270319)
+
+Purpose: Program that simulates the escape by two heroes through a hollow, as flying monkeys and attack birds try to stop them. The program implements multiple processes and displays them on the screen in one terminal window, and the other process allows a spectator to view the identical escape output, at the same time, in a different window.
+
+Source Files:
+  - main.c: Contains the main program flow and logic.
+  - connect.c: Handles network connectivity for a TCP/IP based client-server application
+  - escape.c: Orchestrates the overall escape scenario game.
+  - flyer.c: Defines and manages the behaviors and interactions of the flyers within the escape scenario.
+  - hero.c: Defines and handles the functionalities related to the heroes in the escape scenario.
+  - spectator.c: Contains client code.
+  - view.c: Manages the visual representation and output of the escape scenario in the game.
+
+Header Files:
+  - defs.h: Defines structures and constants used throughout the program.
+
+Compilation instructions: Run the 'make' command in the project directory.
+
+Launching instructions: Open two separate windows. In the first one run './a5'. And in the second one run './a5 127.0.0.1'.
