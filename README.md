@@ -1,4 +1,4 @@
-# [Your Name]'s Portfolio of Coding Projects
+# Coding Projects
 
 Welcome to my centralized repository that houses a collection of coding projects I have developed. This repository serves as a comprehensive overview of my skills and experiences in software development, showcasing a variety of projects that span different technologies and problem domains.
 
