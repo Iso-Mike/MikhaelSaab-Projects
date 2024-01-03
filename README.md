@@ -18,7 +18,7 @@ Below is a list of key projects included in this repository. Each project link l
 ## About Me
 - **Name:** Mikhael Saab
 - **Role:** Student
-- **Education:** Honours Bachelor of Computer Science (Computer and Internet Security Stream)
+- **Education:** Honours Bachelor of Computer Science (Computer and Internet Security Stream)| Minor in Business
 - **Contact:** mikhaelsaab@gmail.com
 
 ## How to Use This Repository
