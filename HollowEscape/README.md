@@ -2,7 +2,7 @@
 # Hollow Escape Simulation
 
 ## Author
-Mikhael Saab (101270319)
+Mikhael Saab
 
 ## Overview
 The Hollow Escape Simulation is a dynamic and interactive program that simulates the challenging escape of two heroes through a hollow, amidst threats from flying monkeys and attack birds. This program showcases the use of multiple processes, threading, and network communication to display the game in one terminal window, while simultaneously allowing a spectator to view the identical escape output in a different window.
