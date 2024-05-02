@@ -31,5 +31,3 @@ The University Registration System is a comprehensive software application desig
 ## Usage Instructions
 - **Execute the Application:** Run `./UniRegSystem` in the terminal to start the system.
 - **Interact with the System:** Follow the on-screen prompts to navigate through the registration process, manage student profiles, and handle course offerings.
-
-Feel free to adjust or extend any part of this README based on specific functionalities or additional details you'd like to include about your system!
