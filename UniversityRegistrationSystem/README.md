@@ -25,7 +25,7 @@ The University Registration System is a comprehensive software application desig
 - `Control.h`, `View.h`, `School.h`, `Student.h`, `Course.h`, `Registration.h`, `RegList.h`, `CourseArray.h`, `StuArray.h`: Header files declaring the classes and their methods for managing various aspects of the system.
 
 ## How to Compile and Run
-- **Compilation:** `make` (ensure your Makefile is set up to compile these files)
+- **Compilation:** `make`
 - **Execution:** `./UniRegSystem`
 
 ## Usage Instructions
