@@ -1,34 +1,35 @@
-# FineDine Reservation System
+# University Registration System
 
 ## Author
 Mikhael Saab
 
 ## Overview
-The University Reservation System is a robust and scalable software application designed for advanced university management operations. It leverages structured data handling and efficient algorithmic solutions to optimize the management of patrons and their reservation details. The system is built on a foundation of modular programming principles, ensuring high maintainability and ease of future enhancements.
+The University Registration System is a comprehensive software application designed to manage student and course registrations efficiently. This system is capable of handling a large volume of data, offering a robust solution for universities to maintain student records, course details, and enrollment information. It is developed with modularity and scalability in mind, ensuring that it can be adapted to the growing needs of educational institutions.
 
 ## Features
-- **Dynamic Data Management:** Utilizes dynamic data structures, including linked lists, for efficient storage and retrieval of patron and reservation information. This ensures optimal memory usage and performance.
-- **Linked List Implementation:** Employs singly and doubly linked lists to manage data, allowing for efficient insertion, deletion, and traversal operations, crucial for real-time data updates and queries.
-- **Algorithmic Efficiency:** Implements sophisticated algorithms for data manipulation, offering fast and reliable access to reservation details and patron records.
-- **Modular Design:** Architecturally structured with a modular approach, separating user interface logic, data handling, and business logic into distinct components.
-- **Robust Error Handling:** Rigorously designed to handle edge cases and user input errors, guaranteeing a stable and reliable user experience.
-- **Data Persistence:** Equipped with functionalities for pre-loading initial data sets, paving the way for future integration with persistent storage solutions.
+- **Efficient Data Management:** Utilizes custom data structures and dynamic arrays for optimal performance in data manipulation and retrieval.
+- **Advanced Registration Logic:** Supports complex registration scenarios, including course prerequisites, registration limits, and waitlist management.
+- **User-Friendly Interface:** Provides a simple and intuitive interface for both administrative staff and students to navigate and use the system effectively.
+- **Modular Design:** Features a clear separation of concerns, dividing the system into core components such as student management, course management, and registration control.
+- **Robust Error Handling:** Includes comprehensive error checking to prevent and manage exceptions, ensuring reliable system performance.
+- **Data Persistence:** Designed to interface with external data storage solutions, facilitating easy data backup and retrieval.
 
 ## Source Files
-- `main.c`: Main program flow and user interface.
-- `patrons.c`: Manages patron-related functionalities.
-- `resv.c`: Handles reservation-related operations.
-- `load.c`: Loads initial data into the system.
-- `restaurant.c`: Core functions for restaurant management.
+- `main.cc`: The main driver of the application.
+- `Control.cc`, `View.cc`, `School.cc`: Coordinate the flow of the application and handle the user interface.
+- `Student.cc`, `Course.cc`, `Registration.cc`, `RegList.cc`: Handle the business logic related to students, courses, registrations, and registration lists respectively.
+- `CourseArray.cc`, `StuArray.cc`: Manage arrays of courses and students.
 
 ## Header Files
-- `defs.h`: Defines essential structures and constants used across the program.
+- `defs.h`: Defines essential constants and structures used across the system.
+- `Control.h`, `View.h`, `School.h`, `Student.h`, `Course.h`, `Registration.h`, `RegList.h`, `CourseArray.h`, `StuArray.h`: Header files declaring the classes and their methods for managing various aspects of the system.
 
 ## How to Compile and Run
-- **Compilation: make** 
-- **Execution: ./FineDineManager** 
-
+- **Compilation:** `make` (ensure your Makefile is set up to compile these files)
+- **Execution:** `./UniRegSystem`
 
 ## Usage Instructions
-- **Execute the Application:** Run `./FineDineManager` in the terminal to start the program.
-- **Access Main Menu:** Interact with the main menu to explore different functionalities.
+- **Execute the Application:** Run `./UniRegSystem` in the terminal to start the system.
+- **Interact with the System:** Follow the on-screen prompts to navigate through the registration process, manage student profiles, and handle course offerings.
+
+Feel free to adjust or extend any part of this README based on specific functionalities or additional details you'd like to include about your system!
