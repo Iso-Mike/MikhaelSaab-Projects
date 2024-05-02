@@ -1,7 +1,7 @@
 OPT = -Wall
 
-A03: main.o Control.o View.o Course.o CourseArray.o StuArray.o Registration.o RegList.o Student.o School.o
-	g++ $(OPT) -o A03 main.o Control.o View.o Course.o CourseArray.o StuArray.o Registration.o RegList.o Student.o School.o
+UniRegSystem: main.o Control.o View.o Course.o CourseArray.o StuArray.o Registration.o RegList.o Student.o School.o
+	g++ $(OPT) -o UniRegSystem main.o Control.o View.o Course.o CourseArray.o StuArray.o Registration.o RegList.o Student.o School.o
 
 main.o: main.cc defs.h Control.h View.h Course.h CourseArray.h StuArray.h Registration.h RegList.h Student.h School.h 
 	g++ $(OPT) -c main.cc
@@ -34,4 +34,4 @@ View.o: View.cc View.h defs.h
 	g++ $(OPT) -c View.cc
 
 clean:
-	rm -f *.o A03
+	rm -f *.o UniRegSystem
