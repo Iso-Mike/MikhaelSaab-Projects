@@ -17,7 +17,6 @@ The Sports League Management System is a relational database solution designed t
 - `create_database.py`: Script for creating the database schema and populating it with initial data.
 - `app.py`: Application script to interact with the database for querying and analysis.
 - `ER.pdf`: Entity-relationship diagram illustrating the database design.
-- `Description.pdf`: Detailed documentation of the database structure and its intended use.
 
 ## How to Compile and Run
 1. **Prerequisites:** Ensure Python 3.x and SQLite are installed on your system.
